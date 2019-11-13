@@ -1,0 +1,22 @@
+{
+  "name": "csv-parse",
+  "version": "1.0.0",
+  "description": "script that monitors switch error logs to report photoshop script errors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heliumface770/csv-parse.git"
+  },
+  "author": "Will Wojeck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heliumface770/csv-parse/issues"
+  },
+  "homepage": "https://github.com/heliumface770/csv-parse#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
+}

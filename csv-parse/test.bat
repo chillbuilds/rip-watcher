@@ -1,0 +1,1 @@
+Powershell.exe -executionpolicy remotesigned -File C:\Users\Deny\Desktop\csv-parse\test.ps1
