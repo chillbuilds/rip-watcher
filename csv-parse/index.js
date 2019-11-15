@@ -1,5 +1,5 @@
 //set error-logs directory
-const testFolder = 'C:/Users/Master William/Desktop/error-logs/';
+const testFolder = 'C:/Users/Master William/Desktop/test-logs/';
 const fs = require('fs');
 
 const csvArr = [];
@@ -28,7 +28,6 @@ console.log(csvArr);
 for(var i = 0; i < csvArr.length; i++){
 fs.readFile(`${testFolder}${csvArr[i]}`, "utf8", function(error, data){
 
-    console.log(data);
     const x = data.toString();
     const y = x.split("\n");
     const z = y.toString();
@@ -39,16 +38,21 @@ fs.readFile(`${testFolder}${csvArr[i]}`, "utf8", function(error, data){
             let x = arr[i + 7]; 
             let y = x.split(";");
             if(y[1] !== undefined){
-            console.log(`${y[1]}\n`);
+                fs.appendFileSync(`${testFolder}rip-14-errors.txt`, `${y[1]}\n`, function(err){})
         }}
         if(arr[i] === "warning"){
             let x = arr[i + 6];
+            fs.appendFileSync(`${testFolder}rip-14-errors.txt`, ` - Warning: ${x}\n`, function(err){})
             console.log(` - Warning: ${x}\n`);
         }
     }
 })
 }
 
+
+for (var i = 0; i < csvArr.length; i++) {
+    fs.unlinkSync(`${testFolder}${csvArr[i]}`)
+}
 
 // fs.rename('/path/to/old.png', '/path/to/new.png', function(err) {
 //     if ( err ) console.log('ERROR: ' + err);
