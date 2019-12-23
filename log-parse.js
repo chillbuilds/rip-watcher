@@ -1,7 +1,7 @@
 //set error-logs directory
-const testFolder = 'C:/Users/Master William/Desktop/error-logs/';
+const testFolder = 'C:/Users/Deny/Desktop/logs/';
 const fs = require('fs');
-
+const sms = require("./sms")
 const csvArr = [];
 
 
@@ -14,7 +14,7 @@ fs.readdirSync(testFolder).forEach(file => {
 
 //rename last file in folder to kick off fresh logging and gain access to latest 
 fs.rename(`${testFolder}${csvArr[csvArr.length - 1]}`, `${testFolder}final.csv`, function(err) {
-    if ( err ) console.log('ERROR: ' + err);
+    if ( err ) console.log(err);
 });
 
 
@@ -38,17 +38,23 @@ fs.readFile(`${testFolder}${csvArr[i]}`, "utf8", function(error, data){
             let x = arr[i + 7]; 
             let y = x.split(";");
             if(y[1] !== undefined){
-                fs.appendFileSync(`${testFolder}rip-14-errors.txt`, `${y[1]}\n`, function(err){})
+                let z = y[1];
+                let n = z.split(":");
+                let errorCode = n[0];
+                if(errorCode === " - Error 8800" || " - Error 25"){
+                console.log(errorCode);
+                fs.appendFileSync(`${testFolder}rip-14-errors.txt`, `${y}\n\n`, function(err){})}
         }}
         if(arr[i] === "warning"){
             let x = arr[i + 6];
-            fs.appendFileSync(`${testFolder}rip-14-errors.txt`, ` - Warning: ${x}\n`, function(err){})
-            console.log(` - Warning: ${x}\n`);
+            fs.appendFileSync(`${testFolder}rip-14-errors.txt`, ` - Warning: ${x}\n\n`, function(err){})
+            console.log(`Warning: ${x}\n`);
         }
     }
 })
 }
 
+sms();
 
 for (var i = 0; i < csvArr.length; i++) {
     fs.unlinkSync(`${testFolder}${csvArr[i]}`)
