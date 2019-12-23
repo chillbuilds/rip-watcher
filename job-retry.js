@@ -55,11 +55,12 @@ function denyPrefixCompare(dataArr){
         console.log("match: "+ denyLogPrefix[j])
       }else{
         fs.appendFileSync(`${logDir}log.txt`, `,${denyJobPrefix[i]}`, function(err){});
-
+        fs.copyFileSync(`${jobDir}${denyJobPrefix[i]}`, `${dropDir}${denyJobPrefix[i]}`);
+        fs.unlinkSync(`${jobDir}${denyJobPrefix[i]}`);
       }
     }
   }}
 
 function switchPrefixCompare(){
-
+  
 }

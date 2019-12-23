@@ -1,1 +1,0 @@
-Powershell.exe -executionpolicy remotesigned -File C:\Users\Deny\Documents\master-switch-folders\master-file-duplication\test.ps1

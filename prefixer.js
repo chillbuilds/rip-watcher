@@ -1,6 +1,6 @@
-const inHighPath = 'C:/Users/Deny/Documents/master-switch-folders/in-high-prefixes/';
-const inPath = 'C:/Users/Deny/Documents/master-switch-folders/in-prefixes/';
-const inBulkPath = 'C:/Users/Deny/Documents/master-switch-folders/in-bulk-prefixes/';
+const inHighPath = "Z:/DenyDesigns/Workflow/in-high/";
+const inPath = "Z:/DenyDesigns/Workflow/in/";
+const inBulkPath = "Z:/DenyDesigns/Workflow/in-bulk/";
 const fs = require('fs');
 const prefixes = ["bed_", "bath_", "acr_", "wall_", "pillow_", "sqtray_", "acc_", "ntbk_"]
 var inHighDir = [];

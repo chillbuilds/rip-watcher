@@ -1,5 +1,5 @@
 //set error-logs directory
-const testFolder = 'C:/Users/Master William/Desktop/test-logs/';
+const testFolder = 'C:/Users/Master William/Desktop/error-logs/';
 const fs = require('fs');
 
 const csvArr = [];
