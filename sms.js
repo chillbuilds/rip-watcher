@@ -1,4 +1,4 @@
-module.exports = function sms(){
+module.exports = function sms(errorCodes){
 var unirest = require("unirest");
 var req = unirest("POST", "https://textbelt-sms.p.rapidapi.com/text");
 
@@ -9,8 +9,8 @@ req.headers({
 });
 
  req.form({
- 	"message": "kudos on pissing away $0.15!",
- 	"phone": "7206676039",
+ 	"message": `${errorCodes} on ${rip}`,
+ 	"phone": `${phoneNum}`,
  	"key": "24e787aad7d2e7fabb976eba8c4bb9e30d9b21edsx7Z5kngDursHl2rCVvp5MzYd"
  });
 
