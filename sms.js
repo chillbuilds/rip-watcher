@@ -1,4 +1,4 @@
-module.exports = function sms(errorCodes){
+module.exports = function sms(){
 	console.log('sms function fired')
 var unirest = require("unirest")
 
