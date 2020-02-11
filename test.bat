@@ -1,1 +1,0 @@
-node "C:\Users\Deny\Documents\master-switch-folders\master-file-duplication\index.js"

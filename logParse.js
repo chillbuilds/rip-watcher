@@ -1,10 +1,9 @@
 module.exports = function logParse() {
-  const localDir = "C:/Users/Deny/Desktop/logs/";
-  const fs = require("fs");
-  const sms = require("./sms");
-  var csvArr = [];
-  var errorCodes = [];
-  var parsed;
+  const localDir = "C:/Users/Deny/Documents/switch-folders/error-logs/";
+  const fs = require("fs")
+  const sms = require("./sms")
+  var csvArr = []
+  var errorCodes;
 
   //gather csv file names from 'error-logs' dir and push to csvArr
   fs.readdirSync(localDir).forEach(file => {
@@ -48,7 +47,8 @@ module.exports = function logParse() {
               let p = o.split(" - ");
               let errorCode = p[1];
               if (errorCode === "Error 8800" || "Error 25") {
-                errorCodes.push(errorCode + " ");
+                // errorCodes.push(errorCode + " ");
+                      sms(errorCodes);
               }
             }
           }
@@ -57,18 +57,15 @@ module.exports = function logParse() {
           //     console.log(`Warning: ${x}\n`);
           // }
         }
-        // console.log(errorCodes);
-        sms(errorCodes);
       });
     }
-
-    if (csvArr.length > 1) {
-      for (var i = 0; i < csvArr.length; i++) {
-        fs.unlinkSync(`${localDir}${csvArr[i]}`);
-      }
-    } else {
-      fs.unlinkSync(`${localDir}final.csv`);
-    }
+    // if (csvArr.length > 1) {
+    //   for (var i = 0; i < csvArr.length; i++) {
+    //     fs.unlinkSync(`${localDir}${csvArr[i]}`);
+    //   }
+    // } else {
+    //   fs.unlinkSync(`${localDir}final.csv`);
+    // }
   }
 };
 

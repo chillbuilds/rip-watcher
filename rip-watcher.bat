@@ -1,0 +1,1 @@
+node "C:\Users\Deny\Documents\switch-folders\rip-watcher\index.js"

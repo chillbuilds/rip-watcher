@@ -1,15 +1,18 @@
 module.exports = function sms(errorCodes){
-var unirest = require("unirest");
-var req = unirest("POST", "https://textbelt-sms.p.rapidapi.com/text");
+	console.log('sms function fired')
+var unirest = require("unirest")
+
+var req = unirest("POST", "https://textbelt-sms.p.rapidapi.com/text")
+
 
 req.headers({
 	"x-rapidapi-host": "textbelt-sms.p.rapidapi.com",
 	"x-rapidapi-key": "50c3507768mshd3e33ce09a430eap1fae7ajsnab00c9f6c026",
 	"content-type": "application/x-www-form-urlencoded"
-});
+})
 
  req.form({
- 	"message": `${errorCodes} on ${rip}`,
+ 	"message": `Fatal Error on ${rip}`,
  	"phone": `${phoneNum}`,
  	"key": "24e787aad7d2e7fabb976eba8c4bb9e30d9b21edsx7Z5kngDursHl2rCVvp5MzYd"
  });
